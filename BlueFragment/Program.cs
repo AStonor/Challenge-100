@@ -115,21 +115,12 @@ namespace BlueFragment
         }
 
 
+
         static bool IsIsogram(string input)
         {
-            var charArray = input.ToLower().ToArray();
-            Array.Sort(charArray);
+            var uniqueChars = input.ToLower().Distinct();
 
-            for (int i = 0; i < charArray.Length - 1; i++)
-            {
-                if (charArray[i] == charArray[i + 1])
-                {
-                    return false;
-                }
-
-            }
-
-            return true;
+            return uniqueChars.Count() == input.Length ? true : false;
 
         }
 
